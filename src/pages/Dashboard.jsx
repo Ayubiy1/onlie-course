@@ -12,6 +12,8 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { auth } from "../firebase/config";
 import { useState } from "react";
 import { useLocalStorageState } from "ahooks";
+import { MdOutlinePlayLesson } from "react-icons/md";
+import { GiTeacher } from "react-icons/gi";
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -51,9 +53,27 @@ const Dashboard = () => {
                     }}>
                         Kurslar
                     </Menu.Item>
-                    <Menu.Item key="3" icon={<UserOutlined />} onClick={() => {
-                        navigate("/dashboard/profile")
+                    <Menu.Item key="3" icon={<BookOutlined />} onClick={() => {
+                        navigate("/dashboard/lessons")
                         setChoosedMenu(3);
+                    }}>
+                        Darslar
+                    </Menu.Item>
+                    <Menu.Item key="4" icon={<MdOutlinePlayLesson />} onClick={() => {
+                        navigate("/dashboard/add-lesson")
+                        setChoosedMenu(4);
+                    }}>
+                        Darslar qo'shish
+                    </Menu.Item>
+                    <Menu.Item key="5" icon={<GiTeacher />} onClick={() => {
+                        navigate("/dashboard/teachers")
+                        setChoosedMenu(5);
+                    }}>
+                        Teachers
+                    </Menu.Item>
+                    <Menu.Item key="6" icon={<UserOutlined />} onClick={() => {
+                        navigate("/dashboard/profile")
+                        setChoosedMenu(6);
                     }}>
                         Profil
                     </Menu.Item>
