@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db, auth } from "../../firebase/config";
-import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, where, Timestamp } from "firebase/firestore";
 import { Table, Button, message, Typography } from "antd";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BookOutlined, CommentOutlined, DollarOutlined, AimOutlined } from "@ant-design/icons";
@@ -58,6 +58,13 @@ const AllCourses = () => {
                 error('Siz allaqachon bu kursga yozilgansiz.');
                 return message.info("Siz allaqachon bu kursga yozilgansiz.");
             }
+
+            await addDoc(collection(db, "userCourses"), {
+                userId: user.uid,
+                courseId,
+                enrolledAt: Timestamp.now(),
+                completedLessons: [0]
+            });
 
             // ✍️ Agar yozilmagan bo‘lsa — yozamiz
             await addDoc(collection(db, "enrollments"), {

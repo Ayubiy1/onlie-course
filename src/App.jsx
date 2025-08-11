@@ -18,6 +18,7 @@ import CourseLesson from './pages/user/CourseLesson'
 import AddLesson from './pages/AddLesson'
 import LessonList from './pages/LessonList'
 import TeacherList from './pages/TeacherList'
+import EditProfile from './pages/user/EditProfile'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
           <Route path="/my-courses/:courseId/:lessonIndex" element={<CourseLesson />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

@@ -90,7 +90,7 @@ const UserLayout = () => {
                         Chiqish
                     </Button>
                 </Header>
-                <Content className="m-4 bg-white p-6 rounded shadow-sm">
+                <Content className="m-4 bg-white p-6 rounded shadow-sm h-[30vh] overflow-y-scroll">
                     <Outlet />
                 </Content>
             </Layout>
